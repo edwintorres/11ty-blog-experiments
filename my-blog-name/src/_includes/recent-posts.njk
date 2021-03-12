@@ -1,0 +1,27 @@
+
+<!-- RECENT POST -->
+{% set maxPosts = collections.posts.length | min(3) %}
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+<div class="widget mb-4 pb-2">
+    <h5 class="widget-title">Recent Post</h5>
+    <div class="mt-4">
+    {% for post in postslist | reverse %}
+
+
+
+    <div class="clearfix post-recent">
+        <div class="post-recent-thumb float-start"> <a href="{{ post.url | url }}"> <img alt="img" src="/images/blog/08.jpg" class="img-fluid rounded"></a></div>
+        <div class="post-recent-content float-start"><a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a><span class="text-muted mt-2">{{ post.date | readableDate }}</span></div>
+    </div>
+
+    {% endfor %}
+
+    </div>
+</div>
+<!-- RECENT POST -->
+
+
+
+
+

@@ -1,0 +1,42 @@
+{# <ol reversed class="postlist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}"> #}
+{% for post in postslist | reverse %}
+  {# <li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
+    <a href="{{ post.url | url }}" class="postlist-link">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+    {% for tag in post.data.tags %}
+      {%- if collections.tagList.indexOf(tag) != -1 -%}
+      {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+      <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
+      {%- endif -%}
+    {% endfor %}
+  </li> #}
+
+<div class="col-lg-6 col-md-12 mb-4 pb-2">
+    
+    <div class="card blog rounded border-0 shadow">
+        <div class="position-relative">
+            <img src="/images/blog/01.jpg" class="card-img-top rounded-top" alt="...">
+            <div class="overlay rounded-top bg-dark"></div>
+        </div>
+        <div class="card-body content">
+            <h5><a href="{{ post.url | url }}" class="card-title title text-dark">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a></h5>
+            <div class="post-meta d-flex justify-content-between mt-3">
+                <ul class="list-unstyled mb-0">
+                    <li class="list-inline-item me-2 mb-0"><a href="{{ post.url | url }}" class="text-muted like"><i class="uil uil-heart me-1"></i>33</a></li>
+                    <li class="list-inline-item"><a href="{{ post.url | url }}" class="text-muted comments"><i class="uil uil-comment me-1"></i>08</a></li>
+                </ul>
+                <a href="{{ post.url | url }}" class="text-muted readmore">Read More <i class="uil uil-angle-right-b align-middle"></i></a>
+            </div>
+        </div>
+        <div class="author">
+            <small class="text-light user d-block"><i class="uil uil-user"></i> Calvin Carlo</small>
+            <small class="text-light date"><i class="uil uil-calendar-alt"></i> 13th August, 2019</small>
+        </div>
+    </div>
+</div><!--end col-->
+
+{% endfor %}
+{# </ol> #}
+
+
+
