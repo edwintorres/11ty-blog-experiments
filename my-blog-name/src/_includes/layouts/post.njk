@@ -2,20 +2,28 @@
 layout: layouts/base.njk
 templateClass: tmpl-post
 ---
-{# <h1>{{ title }}</h1> #}
 
-{{ content | safe }}
+<div class="card blog blog-detail border-0 shadow rounded">
+    {# <img src="/images/blog/01.jpg" class="img-fluid rounded-top" alt="">
+    <br /> #}
+    {% img 
+          input = headerImage | url,
+          width = 736,
+          alt = headerImageAlt,
+          className = "img-fluid rounded-top"
+    %}
+    <div class="card-body content">
+        <h6><i class="mdi mdi-tag text-primary me-1"></i><a href="javscript:void(0)" class="text-primary">Software</a>, <a href="javscript:void(0)" class="text-primary">Application</a></h6>
+        
 
-<hr>
-{# <ul>
-  {%- set nextPost = collections.posts | getNextCollectionItem(page) %}
-  {%- if nextPost %}<li>Next: <a href="{{ nextPost.url | url }}">{{ nextPost.data.title }}</a></li>{% endif %}
-  {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
-  {%- if previousPost %}<li>Previous: <a href="{{ previousPost.url | url }}">{{ previousPost.data.title }}</a></li>{% endif %}
-</ul> #}
+        {{ content | safe }}
+        
+    </div>
+</div>
 
-<!-- PAGINATION START -->
+<br/>
 
+<!-- Pagination Start -->
 <div class="col-12">
     <ul class="pagination justify-content-center mb-0">
       {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
@@ -24,16 +32,4 @@ templateClass: tmpl-post
       <li class="page-item"> {%- if nextPost %}<a class="page-link" href="{{ nextPost.url | url }}" aria-label="Mext">{{ nextPost.data.title }}</a></li>{% endif %}
     </ul>
 </div>
-
-
-                            {# <!-- PAGINATION START -->
-                            <div class="col-12">
-                                <ul class="pagination justify-content-center mb-0">
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Previous">Prev</a></li>
-                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Next">Next</a></li>
-                                </ul>
-                            </div><!--end col-->
-                            <!-- PAGINATION END --> #}
+<!-- Pagination End -->

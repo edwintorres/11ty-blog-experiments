@@ -39,162 +39,154 @@
   </head>
   <body>
 
-        <!-- Navbar STart -->
-        <header id="topnav" class="defaultscroll sticky">
-            <div class="container">
-                <!-- Logo container-->
-                <div>
-                    <a class="logo" href="/index.html">
-                        <img src="/images/edtorr.png" height="24" alt="">
+    <!-- Navbar STart -->
+    <header id="topnav" class="defaultscroll sticky">
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                <a class="logo" href="/index.html">
+                    <img src="/images/edtorr.png" height="24" alt="">
+                </a>
+            </div>                 
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </a>
-                </div>                 
-                <!--end login button-->
-                <!-- End Logo container-->
-                <div class="menu-extras">
-                    <div class="menu-item">
-                        <!-- Mobile menu toggle-->
-                        <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
-                            <div class="lines">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </a>
-                        <!-- End mobile menu toggle-->
-                    </div>
+                    <!-- End mobile menu toggle-->
                 </div>
-        
-                <div id="navigation">
-                    <!-- Navigation Menu-->   
-                    <ul class="navigation-menu">                        
-
-                        {%- for entry in collections.all | eleventyNavigation %}
-                        
-                            <li class="sub-menu-item {% if entry.url == page.url %} active {% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
-                        
-                        {%- endfor %}
-
-                    </ul><!--end navigation menu-->
-                    <div class="buy-menu-btn d-none">
-                        {# <a href="https://1.envato.market/4n73n" target="_blank" class="btn btn-primary"></a> #}
-                    </div><!--end login button-->
-                </div><!--end navigation-->
-            </div><!--end container-->
-        </header><!--end header-->
-        <!-- Navbar End -->
-
-        <!-- Hero Start -->
-        <section class="bg-half bg-light d-table w-100">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-12 text-center">
-                        <div class="page-next-level">
-                            <h4 class="title"> {{ title or metadata.title }} </h4>
-                            <div class="page-next">
-
-                                {# <nav aria-label="breadcrumb" class="d-inline-block">
-                                    {% set navPages = collections.all | eleventyNavigationBreadcrumb("Blog") %}
-                                    <ul class="breadcrumb bg-white rounded shadow mb-0">
-                                        {%- for entry in navPages %}
-                                            <li class="breadcrumb-item">
-                                                <a href="{{ entry.url | url }}">{{ entry.title }}</a>
-                                            </li>
-                                        {%- endfor %}
-                                        <li class="breadcrumb-item active" aria-current="page">{{ title or metadata.title }}</li>
-                                    </ul>
-                                </nav> #}
-                            </div>
-                        </div>
-                    </div>  <!--end col-->
-                </div><!--end row-->
-            </div> <!--end container-->
-        </section><!--end section-->
-        <!-- Hero End -->
-
-        <!-- Shape Start -->
-        <div class="position-relative">
-            <div class="shape overflow-hidden text-white">
-                <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-                </svg>
             </div>
-        </div>
-        <!--Shape End-->
-
-        <!-- Blog Start -->
-        <section class="section">
-            <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
-                <div class="row">
-                    <!-- BLog Start -->
-                    <div class="col-lg-8 col-md-6">
-                        <div class="row">
-
-                              {{ content | safe }}
-                                      
-                        </div><!--end row-->
-                    </div><!--end col-->
-                    <!-- BLog End -->
-
-                    <!-- START SIDEBAR -->
-                    <div class="col-lg-4 col-md-6 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                        <div class="card border-0 sidebar sticky-bar rounded shadow">
-                            <div class="card-body">
-                                <!-- SEARCH -->
-                                <div class="widget">
-                                    <form role="search" method="get">
-                                        <div class="input-group mb-3 border rounded">
-                                            <input type="text" id="s" name="s" class="form-control border-0" placeholder="Search Keywords...">
-                                            <button type="submit" class="input-group-text bg-transparent border-0" id="searchsubmit"><i class="uil uil-search"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <!-- SEARCH -->
     
-                                <!-- Categories -->
-                                <div class="widget mb-4 pb-2">
-                                    <h5 class="widget-title">Categories</h5>
-                                    <ul class="list-unstyled mt-4 mb-0 blog-categories">
-                                        <li><a href="jvascript:void(0)">Finance</a> <span class="float-end">13</span></li>
-                                        <li><a href="jvascript:void(0)">Business</a> <span class="float-end">09</span></li>
-                                        <li><a href="jvascript:void(0)">Blog</a> <span class="float-end">18</span></li>
-                                        <li><a href="jvascript:void(0)">Corporate</a> <span class="float-end">20</span></li>
-                                        <li><a href="jvascript:void(0)">Investment</a> <span class="float-end">22</span></li>
-                                    </ul>
-                                </div>
-                                <!-- Categories -->
-    
+            <div id="navigation">
+                <!-- Navigation Menu-->   
+                <ul class="navigation-menu">                        
 
-                                {% include "recent-posts.njk" %}
+                    {%- for entry in collections.all | eleventyNavigation %}
+                    
+                        <li class="sub-menu-item {% if entry.url == page.url %} active {% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+                    
+                    {%- endfor %}
 
+                </ul><!--end navigation menu-->
+            </div><!--end navigation-->
+        </div><!--end container-->
+    </header><!--end header-->
+    <!-- Navbar End -->
 
-                                {% include "tags-cloud.njk" %}
-                                
-                                <!-- SOCIAL -->
-                                <div class="widget">
-                                    <h5 class="widget-title">Follow us</h5>
-                                    <ul class="list-unstyled social-icon mb-0 mt-4">
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="youtube" class="fea icon-sm fea-social"></i></a></li>
-                                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
-                                    </ul><!--end icon-->
-                                </div>
-                                <!-- SOCIAL -->
-                            </div>
+    <!-- Hero Start -->
+    <section class="bg-half bg-light d-table w-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="page-next-level">
+                        <h4 class="title"> {{ title or metadata.title }} </h4>
+                        <div class="page-next">
+
+                            {# <nav aria-label="breadcrumb" class="d-inline-block">
+                                {% set navPages = collections.all | eleventyNavigationBreadcrumb("Blog") %}
+                                <ul class="breadcrumb bg-white rounded shadow mb-0">
+                                    {%- for entry in navPages %}
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+                                        </li>
+                                    {%- endfor %}
+                                    <li class="breadcrumb-item active" aria-current="page">{{ title or metadata.title }}</li>
+                                </ul>
+                            </nav> #}
                         </div>
-                    </div><!--end col-->
-                    <!-- END SIDEBAR -->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
-        <!-- Blog End -->
+                    </div>
+                </div>  <!--end col-->
+            </div><!--end row-->
+        </div> <!--end container-->
+    </section><!--end section-->
+    <!-- Hero End -->
 
- 
+    <!-- Shape Start -->
+    <div class="position-relative">
+        <div class="shape overflow-hidden text-white">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    <!--Shape End-->
+
+    <!-- Blog Start -->
+    <section class="section">
+        <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
+            <div class="row">
+                <!-- BLog Start -->
+                <div class="col-lg-8 col-md-6">
 
 
+                            {{ content | safe }}
+
+                </div><!--end col-->
+                <!-- BLog End -->
+
+                <!-- START SIDEBAR -->
+                <div class="col-lg-4 col-md-6 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="card border-0 sidebar sticky-bar rounded shadow">
+                        <div class="card-body">
+                            <!-- SEARCH -->
+                            <div class="widget">
+                                <form role="search" method="get">
+                                    <div class="input-group mb-3 border rounded">
+                                        <input type="text" id="s" name="s" class="form-control border-0" placeholder="Search Keywords...">
+                                        <button type="submit" class="input-group-text bg-transparent border-0" id="searchsubmit"><i class="uil uil-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- SEARCH -->
+
+                            <!-- Categories -->
+                            <div class="widget mb-4 pb-2">
+                                <h5 class="widget-title">Categories</h5>
+                                <ul class="list-unstyled mt-4 mb-0 blog-categories">
+                                    <li><a href="jvascript:void(0)">Finance</a> <span class="float-end">13</span></li>
+                                    <li><a href="jvascript:void(0)">Business</a> <span class="float-end">09</span></li>
+                                    <li><a href="jvascript:void(0)">Blog</a> <span class="float-end">18</span></li>
+                                    <li><a href="jvascript:void(0)">Corporate</a> <span class="float-end">20</span></li>
+                                    <li><a href="jvascript:void(0)">Investment</a> <span class="float-end">22</span></li>
+                                </ul>
+                            </div>
+                            <!-- Categories -->
+
+
+                            {% include "recent-posts.njk" %}
+
+
+                            {% include "tags-cloud.njk" %}
+                            
+                            <!-- SOCIAL -->
+                            <div class="widget">
+                                <h5 class="widget-title">Follow us</h5>
+                                <ul class="list-unstyled social-icon mb-0 mt-4">
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="youtube" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
+                                </ul><!--end icon-->
+                            </div>
+                            <!-- SOCIAL -->
+                        </div>
+                    </div>
+                </div><!--end col-->
+                <!-- END SIDEBAR -->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Blog End -->
 
     <!-- Footer Start -->
     <footer class="footer">
@@ -288,11 +280,9 @@
 
     <!-- Current page: {{ page.url | url }} -->
 
-    
     <!-- Back to top -->
     <a href="#" onclick="topFunction()" id="back-to-top" class="btn btn-icon btn-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a>
     <!-- Back to top -->
-
 
     <!-- javascript -->
     <script src="/js/bootstrap.bundle.min.js"></script>

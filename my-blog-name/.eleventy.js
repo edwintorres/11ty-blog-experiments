@@ -6,7 +6,11 @@ const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
+const sassProcess = require('./build/sass-process');
+const imageProcess = require('./build/image-process');
+
 module.exports = function(eleventyConfig) {
+    
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
@@ -71,7 +75,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/js");
+
+  // Shortcodes
+  eleventyConfig.addNunjucksAsyncShortcode('img', imageProcess);
   
+  // Sass pre-processing
+  sassProcess('./src/scss/style.scss', './public/css/style.css');
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -89,7 +98,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
       ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync('_site/404.html');
+        const content_404 = fs.readFileSync('public/404.html');
 
         browserSync.addMiddleware("*", (req, res) => {
           // Provides the 404 content without redirect.
@@ -129,7 +138,7 @@ module.exports = function(eleventyConfig) {
       input: "src",
       includes: "_includes",
       data: "_data",
-      output: "_site"
+      output: "public"
     }
   };
 };

@@ -28,8 +28,15 @@
     "@11ty/eleventy-navigation": "^0.1.6",
     "@11ty/eleventy-plugin-rss": "^1.1.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.6",
+    "fibers": "^5.0.0",
+    "fs-extra": "^9.1.0",
     "luxon": "^1.25.0",
     "markdown-it": "^8.4.2",
-    "markdown-it-anchor": "^5.2.5"
+    "markdown-it-anchor": "^5.2.5",
+    "node-sass-promise": "^1.0.0",
+    "number-generator": "^4.0.5",
+    "path": "^0.12.7",
+    "sass": "^1.32.8",
+    "sharp": "^0.27.2"
   }
 }
