@@ -1,0 +1,11 @@
+<br/>
+<!-- Pagination Start -->
+<div class="col-12">
+    <ul class="pagination justify-content-center mb-0">
+      {%- set previousPost = collections.posts | getPreviousCollectionItem(page) %}
+      <li class="page-item"> {%- if previousPost %}<a class="page-link" href="{{ previousPost.url | url }}" aria-label="Previous">{{ previousPost.data.title }}</a></li>{% endif %}
+      {%- set nextPost = collections.posts | getNextCollectionItem(page) %} 
+      <li class="page-item"> {%- if nextPost %}<a class="page-link" href="{{ nextPost.url | url }}" aria-label="Mext">{{ nextPost.data.title }}</a></li>{% endif %}
+    </ul>
+</div>
+<!-- Pagination End -->

@@ -1,0 +1,41 @@
+    <!-- Navbar Start -->
+    <header id="topnav" class="defaultscroll sticky">
+        <div class="container">
+            <!-- Logo container-->
+            <div>
+                    <a class="logo" href="/">
+                        <img src="/images/edtorr.png" class="l-dark" height="24" alt="">
+                        <img src="/images/logo-light.png" class="l-light" height="24" alt="">
+                    </a>
+            </div>         
+            <!--end login button-->
+            <!-- End Logo container-->
+            <div class="menu-extras">
+                <div class="menu-item">
+                    <!-- Mobile menu toggle-->
+                    <a class="navbar-toggle" id="isToggle" onclick="toggleMenu()">
+                        <div class="lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- End mobile menu toggle-->
+                </div>
+            </div>
+    
+            <div id="navigation">
+                <!-- Navigation Menu-->   
+                <ul class="navigation-menu nav-light nav-right">                        
+
+                    {%- for entry in collections.all | eleventyNavigation %}
+                    
+                        <li class="sub-menu-item {% if entry.url == page.url %} active {% endif %}"><a href="{{ entry.url | url }}">{{ entry.title }}</a></li>
+                    
+                    {%- endfor %}
+
+                </ul><!--end navigation menu-->
+            </div><!--end navigation-->
+        </div><!--end container-->
+    </header><!--end header-->
+    <!-- Navbar End -->

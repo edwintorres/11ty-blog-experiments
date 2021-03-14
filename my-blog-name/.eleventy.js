@@ -41,6 +41,12 @@ module.exports = function(eleventyConfig) {
     return Math.min.apply(null, numbers);
   });
 
+  eleventyConfig.addFilter("removeFirstElem", (arr) => {
+    newArr = arr.slice();
+    newArr.shift();
+    return newArr;
+  });
+
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();
     collection.getAll().forEach(function(item) {

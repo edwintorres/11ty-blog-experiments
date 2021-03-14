@@ -1,0 +1,20 @@
+<!-- Content-Blog Start -->
+<div class="card blog blog-detail border-0 shadow rounded">
+    {% img 
+          input = headerImage | url,
+          width = 736,
+          alt = headerImageAlt,
+          className = "img-fluid rounded-top"
+    %}
+    <div class="card-body content">
+      
+        {{ content | safe }}
+
+        {% include "shared/tag-list.njk" %}       
+        
+    </div>
+</div>
+<!-- Content-Blog End -->
+
+{% include "shared/pagination.njk" %}
+

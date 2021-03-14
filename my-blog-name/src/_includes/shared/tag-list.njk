@@ -1,0 +1,10 @@
+{% set tagElems = tags | removeFirstElem %}
+<h6>
+    {% for tag in tagElems %}
+    
+        {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+
+        <i class="mdi mdi-tag text-primary me-1"></i><a href="{{ tagUrl | url }}" class="text-primary">{{ tag }}</a>&nbsp;
+
+    {% endfor %}
+</h6>

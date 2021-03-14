@@ -5,8 +5,10 @@ date: 2018-09-30
 author: Edwin Torres
 headerImage: /images/blog/03.jpg
 headerImageAlt: Pepe!!!!
-tags: second-tag
-layout: layouts/post.njk
+tags: 
+      - second-tag
+      - edwin
+layout: layouts/post-bg-overlay.njk
 eleventyNavigation:
   key: Blog
   parent: Archive

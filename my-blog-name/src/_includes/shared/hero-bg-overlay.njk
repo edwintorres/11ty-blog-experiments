@@ -1,0 +1,31 @@
+    <!-- Hero Start -->
+    <section class="bg-half d-table w-100" style="background: url('{{ headerImage }}') center center;">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 text-center">
+                    <div class="page-next-level">
+                        <h4 class="title text-white title-dark"> {{ title or metadata.title }} </h4>
+                        <div class="page-next">
+
+                            {# <nav aria-label="breadcrumb" class="d-inline-block">
+                                {% set navPages = collections.all | eleventyNavigationBreadcrumb("Blog") %}
+                                <ul class="breadcrumb bg-white rounded shadow mb-0">
+                                    {%- for entry in navPages %}
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ entry.url | url }}">{{ entry.title }}</a>
+                                        </li>
+                                    {%- endfor %}
+                                    <li class="breadcrumb-item active" aria-current="page">{{ title or metadata.title }}</li>
+                                </ul>
+                            </nav> #}
+                        </div>
+                    </div>
+                </div>  <!--end col-->
+            </div><!--end row-->
+        </div> <!--end container-->
+    </section><!--end section-->
+    <!-- Hero End -->
+
+    {% include "shared/shape.njk" %}
+
