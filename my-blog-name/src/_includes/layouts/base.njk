@@ -5,11 +5,7 @@
 
   <body>
 
-    {% include "shared/navbar.njk" %}
-
-    {% include "shared/hero-simple.njk" %}
-
-    {% include "shared/content-section.njk" %}
+    {{ content | safe }}
 
     {% include "shared/footer.njk" %}
 

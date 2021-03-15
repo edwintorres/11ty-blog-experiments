@@ -1,0 +1,34 @@
+---
+layout: layouts/base-header.njk
+---
+<!-- Content-Blog Start -->
+<section class="section">
+    <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
+        <div class="row">
+            <div class="col-lg-8 col-md-6">
+
+                <!-- Content-Post Start -->
+                <div class="card blog blog-detail border-0 shadow rounded">
+                    {% img 
+                        input = headerImage | url,
+                        width = 736,
+                        alt = headerImageAlt,
+                        className = "img-fluid rounded-top"
+                    %}        
+
+                    {% include "shared/content-blog.njk" %}
+
+                </div>
+                <!-- Content-Post End -->
+
+                {% include "shared/pagination.njk" %}
+
+            </div><!--end col-->
+
+            {% include "shared/sidebar.njk" %}
+
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<!-- Content-Blog End -->
+    

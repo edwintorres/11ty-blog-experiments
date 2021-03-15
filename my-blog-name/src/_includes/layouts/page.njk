@@ -1,13 +1,8 @@
 ---
-layout: layouts/base.njk
-templateClass: tmpl-post
+layout: layouts/base-header.njk
 ---
 
-<div class="card blog blog-detail border-0 shadow rounded">
-    <div class="card-body content">
+    {% include "shared/content-page.njk" %}
 
-        {{ content | safe }}
-        
-    </div>
-</div>
+
 

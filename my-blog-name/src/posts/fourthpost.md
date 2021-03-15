@@ -8,7 +8,7 @@ headerImageAlt: Pepe!!!!
 tags: 
       - second-tag
       - edwin
-layout: layouts/post-bg-overlay.njk
+layout: layouts/blog-header-overlay.njk
 eleventyNavigation:
   key: Blog
   parent: Archive
