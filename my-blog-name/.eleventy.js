@@ -17,7 +17,7 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.setDataDeepMerge(true);
 
-  eleventyConfig.addLayoutAlias("post", "src/layouts/post.njk");
+  // eleventyConfig.addLayoutAlias("post", "src/layouts/post.njk");
 
   eleventyConfig.addFilter("readableDate", dateObj => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
@@ -45,6 +45,15 @@ module.exports = function(eleventyConfig) {
     newArr = arr.slice();
     newArr.shift();
     return newArr;
+  });
+
+  eleventyConfig.addCollection("posts", function(collection) {
+    return collection.getFilteredByGlob("src/posts/**/*.md");
+  });
+
+  eleventyConfig.addFilter("JSONstringify", (obj) => {
+    return JSON.stringify(obj[0]);
+    // return JSON.stringify(obj);
   });
 
   eleventyConfig.addCollection("tagList", function(collection) {
