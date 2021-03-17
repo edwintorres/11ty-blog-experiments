@@ -51,10 +51,6 @@ module.exports = function(eleventyConfig) {
     return collection.getFilteredByGlob(["src/posts/**/*.md","src/about/**/*.md"]);
   });
 
-  // eleventyConfig.addCollection("posts", function(collection) {
-  //   return collection.getFilteredByGlob("src/posts/**/*.md");
-  // });
-
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();
     collection.getAll().forEach(function(item) {
@@ -89,6 +85,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/images");
   eleventyConfig.addPassthroughCopy("src/js");
+  // eleventyConfig.addPassthroughCopy("node_modules/loc-i18next/dist/umd/loc-i18next.min.js","js/loc-i18next.min.js");
+
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/loc-i18next/dist/umd/loc-i18next.min.js": "js/loc-i18next.min.js",
+    "node_modules/fuse.js/dist/fuse.min.js": "js/fuse.min.js",
+  });
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode('img', imageProcess);

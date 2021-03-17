@@ -26,7 +26,6 @@ window.addEventListener('load', (event) => {
 
 });
 
-
 const mySearch = () => {
 
     // Change the pattern
@@ -71,3 +70,60 @@ const mySearch = () => {
         });
     }
 }
+
+// use plugins and options as needed, for options, detail see
+// http://i18next.com/docs/
+// i18next.init({
+//     lng: 'en', // evtl. use language-detector https://github.com/i18next/i18next-browser-languageDetector
+//     resources: { // evtl. load via xhr https://github.com/i18next/i18next-xhr-backend
+//         en: {
+//             translation: {
+//                 input: {
+//                     placeholder: "A translated placeholder"
+//                 },
+//                 nav: {
+//                     home: 'Home',
+//                     page1: 'Page One',
+//                     page2: 'Page Two'
+//                 },
+//                 key: {
+//                     title: "Title translated"
+//                 }
+//             }
+//         },
+//         es: {
+//             translation: {
+//                 input: {
+//                     placeholder: "Un marcador de posición traducido"
+//                 },
+//                 nav: {
+//                     home: 'Inicio',
+//                     page1: 'Página uno',
+//                     page2: 'Página dos'
+//                 },
+//                 key: {
+//                     title: "Título traducido"
+//                 }
+//             }
+//         }
+//     }
+// }, function (err, t) {
+
+//     localize = locI18next.init(i18next);
+
+//     localize('.nav');
+//     localize('.content');
+//     localize('#btn1');
+// });
+
+
+// changeL = (lang) => {
+//     // using Promises
+//     i18next
+//         .changeLanguage(lang)
+//         .then((t) => {
+//             localize('.nav');
+//             localize('.content');
+//             localize('#btn1');
+//         });
+// }

@@ -7,7 +7,7 @@ headerImage: /images/blog/04.jpg
 headerImageAlt: 
 templateClass: tmpl-post
 tags:
-  - another-tag
+  - about-me
 eleventyNavigation:
   key: About Me
   order: 3
