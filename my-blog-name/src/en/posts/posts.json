@@ -1,0 +1,7 @@
+{
+    "permalink": "/en/blog/{{ title | slug }}/index.html",
+    "tags": [
+        "posts"
+    ],
+    "layout": "layouts/blog.njk"
+}

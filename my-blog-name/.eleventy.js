@@ -8,8 +8,15 @@ const markdownItAnchor = require("markdown-it-anchor");
 
 const sassProcess = require('./build/sass-process');
 const imageProcess = require('./build/image-process');
+const moment = require("moment");
+// const langContent = require("./src/_data/content");
+const en = require("./src/_data/en");
+const es = require("./src/_data/es");
 
 module.exports = function(eleventyConfig) {
+
+  const langContent = {...en, ...es };
+  console.log(langContent);
     
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
@@ -26,6 +33,13 @@ module.exports = function(eleventyConfig) {
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  });
+
+  // date filter (localized)
+  eleventyConfig.addNunjucksFilter("date", function(date, format, locale) {
+    locale = locale ? locale : "en";
+    moment.locale(locale);
+    return moment(date).format(format);
   });
 
   // Get the first `n` elements of a collection.
@@ -48,7 +62,23 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addCollection("contentForSearch", function(collection) {
-    return collection.getFilteredByGlob(["src/posts/**/*.md","src/about/**/*.md"]);
+    return collection.getFilteredByGlob(["src/posts/**/*.md"
+                                        ,"src/about/**/*.md"
+                                        ,"src/en/posts/*.md"
+                                        ,"src/es/posts/*.md"
+                                      ]);
+  });
+
+  eleventyConfig.addCollection("posts_en", function(collection) {
+    return collection.getFilteredByGlob("src/en/posts/*.md");
+  });
+
+  eleventyConfig.addCollection("posts_es", function(collection) {
+    return collection.getFilteredByGlob("./src/es/posts/*.md");
+  });
+
+  eleventyConfig.addCollection("t", function(collection) {
+    return langContent;
   });
 
   eleventyConfig.addCollection("tagList", function(collection) {

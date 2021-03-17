@@ -9,7 +9,7 @@ templateClass: tmpl-post
 tags:
   - about-me
 eleventyNavigation:
-  key: About Me
+  key: about
   order: 3
 ---
 

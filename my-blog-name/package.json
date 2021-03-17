@@ -35,6 +35,7 @@
     "luxon": "^1.25.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.2.5",
+    "moment": "^2.29.1",
     "node-sass-promise": "^1.0.0",
     "number-generator": "^4.0.5",
     "path": "^0.12.7",

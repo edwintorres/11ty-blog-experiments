@@ -1,8 +1,8 @@
 ---
 layout: layouts/home.njk
 permalink: /archive/
-title: Archive
+title: archive
 ---
 
-{% set postslist = collections.posts %}
+{% set postslist = collections.contentForSearch %}
 {% include "shared/posts-list.njk" %}
