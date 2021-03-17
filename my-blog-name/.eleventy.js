@@ -47,14 +47,13 @@ module.exports = function(eleventyConfig) {
     return newArr;
   });
 
-  eleventyConfig.addCollection("posts", function(collection) {
-    return collection.getFilteredByGlob("src/posts/**/*.md");
+  eleventyConfig.addCollection("contentForSearch", function(collection) {
+    return collection.getFilteredByGlob(["src/posts/**/*.md","src/about/**/*.md"]);
   });
 
-  eleventyConfig.addFilter("JSONstringify", (obj) => {
-    return JSON.stringify(obj[0]);
-    // return JSON.stringify(obj);
-  });
+  // eleventyConfig.addCollection("posts", function(collection) {
+  //   return collection.getFilteredByGlob("src/posts/**/*.md");
+  // });
 
   eleventyConfig.addCollection("tagList", function(collection) {
     let tagSet = new Set();

@@ -4,7 +4,7 @@ description: This is a post on My Blog about touchpoints and circling wagons.
 date: 2018-09-30
 author: Edwin Torres
 headerImage: /images/blog/03.jpg
-headerImageAlt: Pepe!!!!
+headerImageAlt: 
 tags: 
       - second-tag
       - edwin
