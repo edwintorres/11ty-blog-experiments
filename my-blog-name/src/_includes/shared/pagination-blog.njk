@@ -1,0 +1,31 @@
+<!-- PAGINATION START -->
+<div class="col-12">
+    <ul class="pagination justify-content-center mb-0">
+
+        {%- if pagination.pageNumber != 0 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ pagination.href.previous }}" aria-label="{{ collections.t[locale].prev }}">
+                    {{ collections.t[locale].prev }}
+                </a>
+            </li>
+        {%- endif %}
+
+        {%- for pageEntry in pagination.pages %}
+            <li class="page-item {% if page.url == pagination.hrefs[ loop.index0 ] %}active{% endif %}">
+                <a href="{{ pagination.hrefs[ loop.index0 ] }}" class="page-link">
+                    {{ loop.index }}
+                </a>
+            </li>
+        {%- endfor %}
+        
+        {%- if pagination.pageNumber < pagination.pages.length -1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ pagination.href.next }}" aria-label="{{ collections.t[locale].next }}">
+                    {{ collections.t[locale].next }}
+                </a>
+            </li>
+        {%- endif %}
+        
+    </ul>
+</div>
+<!-- PAGINATION END -->

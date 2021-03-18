@@ -1,0 +1,19 @@
+---
+layout: layouts/home.njk
+title: Blog
+eleventyNavigation:
+  key: Blog
+  parent: en
+  order: 3
+locale: en
+pagination:
+  data: collections.posts
+  size: 6
+---
+
+{# {% set postslist = collections.posts %} #}
+{% set postslist = pagination.items %}
+{% include "shared/posts-list.njk" %}
+
+
+{% include "shared/pagination-blog.njk" %}

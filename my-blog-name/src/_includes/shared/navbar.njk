@@ -27,11 +27,11 @@
                 <!-- Navigation Menu-->   
                 <ul class="navigation-menu nav-right">                        
 
-                    {%- for entry in collections.all | eleventyNavigation %}
+                    {%- for entry in collections.all | eleventyNavigation(locale) %}
                     
                         <li class="sub-menu-item {% if entry.url == page.url %} active {% endif %}">
                             <a href="{{ entry.url | url }}">
-                                {{ collections.t[locale][''+entry.key+''] }}
+                                {{ entry.title }}
                             </a>
                         </li>
                     

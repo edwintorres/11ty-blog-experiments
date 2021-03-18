@@ -11,6 +11,7 @@ tags:
 eleventyNavigation:
   key: about
   order: 3
+locale: en
 ---
 
 I am a person that writes stuff.

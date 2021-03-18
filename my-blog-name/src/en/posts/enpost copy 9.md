@@ -1,9 +1,9 @@
 ---
-title: Publicación en Español
-description: Esta es una publicación en español
+title: English post9
+description: An English post for testing.
 date: 2021-03-17
 author: Edwin Torres
-headerImage: /images/blog/07.jpg
+headerImage: /images/blog/02.jpg
 headerImageAlt: 
 tags:
   - another-tag

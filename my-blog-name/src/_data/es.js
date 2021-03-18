@@ -5,9 +5,7 @@ module.exports = {
         tagsCloud: "Etiquetas",
         searchPlaceholder: "Buscar...",
         followUs: "Redes sociales",
-        home: "Inicio",
-        blog: "Blog",
-        about: "Sobre mi",
-        archive: "Archivo"
+        next: "Siguiente",
+        prev: "Anterior"
     }
   };
