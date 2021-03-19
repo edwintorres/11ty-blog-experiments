@@ -8,7 +8,7 @@ headerImageAlt:
 tags: 
       - second-tag
       - edwin
-layout: layouts/blog-header-overlay.njk
+layout: layouts/post-header-overlay.njk
 eleventyNavigation:
   key: Blog
   parent: Archive

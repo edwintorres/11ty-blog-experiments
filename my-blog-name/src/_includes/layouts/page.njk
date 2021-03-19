@@ -2,7 +2,30 @@
 layout: layouts/base-header.njk
 ---
 
-    {% include "shared/content-page.njk" %}
+<!-- Content-Section Start -->
+<section class="section">
+    <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
+        <div class="row">
+            <!-- Content Start -->
+            <div class="col-lg-8 col-md-6">
+
+                <div class="card blog blog-detail border-0 shadow rounded">
+                    <div class="card-body content">
+
+                        {{ content | safe }}
+                        
+                    </div>
+                </div>
+
+            </div><!--end col-->
+            <!-- Content End -->
+
+            {% include "shared/sidebar.njk" %}
+
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<!-- Content-Section End -->
 
 
 

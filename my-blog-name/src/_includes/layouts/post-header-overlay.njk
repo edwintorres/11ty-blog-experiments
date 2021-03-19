@@ -1,24 +1,38 @@
-<!-- Content-Section Start -->
+---
+layout: layouts/base-header-overlay.njk
+---
+<!-- Content-Blog Start -->
 <section class="section">
     <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
         <div class="row">
-            <!-- Content Start -->
             <div class="col-lg-8 col-md-6">
 
+                <!-- Content-Post Start -->
                 <div class="card blog blog-detail border-0 shadow rounded">
+                    
                     <div class="card-body content">
 
                         {{ content | safe }}
+
+                        {% include "shared/tag-list.njk" %}       
                         
                     </div>
+
                 </div>
+                <!-- Content-Post End -->
+
+                {% include "shared/pagination-post.njk" %}
 
             </div><!--end col-->
-            <!-- Content End -->
 
             {% include "shared/sidebar.njk" %}
 
         </div><!--end row-->
     </div><!--end container-->
 </section><!--end section-->
-<!-- Content-Section End -->
+<!-- Content-Blog End -->
+    
+    
+    
+    
+

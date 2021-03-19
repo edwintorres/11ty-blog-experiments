@@ -1,10 +1,13 @@
 ---
 permalink: /tags/
 layout: layouts/home.njk
+title: Tags
 ---
-<h1>Tags</h1>
 
-{% for tag in collections.tagList %}
-  {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-  <a href="{{ tagUrl | url }}" class="post-tag">{{ tag }}</a>
-{% endfor %}
+<div class="card border-0 sidebar sticky-bar rounded shadow">
+  <div class="card-body">
+
+    {% include "shared/tags-cloud.njk" %}
+
+  </div>
+</div>

@@ -16,7 +16,13 @@ layout: layouts/base-header.njk
                         className = "img-fluid rounded-top"
                     %}        
 
-                    {% include "shared/content-blog.njk" %}
+                    <div class="card-body content">
+
+                        {{ content | safe }}
+
+                        {% include "shared/tag-list.njk" %}       
+                        
+                    </div>
 
                 </div>
                 <!-- Content-Post End -->
