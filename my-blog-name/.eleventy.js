@@ -9,42 +9,46 @@ const markdownItAnchor = require("markdown-it-anchor");
 const sassProcess = require('./build/sass-process');
 const imageProcess = require('./build/image-process');
 const moment = require("moment");
-// const langContent = require("./src/_data/content");
 const en = require("./src/_data/en");
 const es = require("./src/_data/es");
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
-  const langContent = {...en, ...es };
-  console.log(langContent);
-    
+  //langContent is a object with the label translations for UI components
+  const langContent = { ...en, ...es };
+
+
+  //Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
 
+
+  // ????
   eleventyConfig.setDataDeepMerge(true);
 
+
+  //Alias
   // eleventyConfig.addLayoutAlias("post", "src/layouts/post.njk");
 
-  eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
-  });
 
+  //Filters
+  eleventyConfig.addFilter("readableDate", dateObj => {
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat("dd LLL yyyy");
+  });
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+    return DateTime.fromJSDate(dateObj, { zone: 'utc' }).toFormat('yyyy-LL-dd');
   });
-
   // date filter (localized)
-  eleventyConfig.addNunjucksFilter("date", function(date, format, locale) {
+  eleventyConfig.addNunjucksFilter("date", function (date, format, locale) {
     locale = locale ? locale : "en";
     moment.locale(locale);
     return moment(date).format(format);
   });
-
   // Get the first `n` elements of a collection.
   eleventyConfig.addFilter("head", (array, n) => {
-    if( n < 0 ) {
+    if (n < 0) {
       return array.slice(n);
     }
 
@@ -61,34 +65,36 @@ module.exports = function(eleventyConfig) {
     return newArr;
   });
 
-  eleventyConfig.addCollection("contentForSearch", function(collection) {
-    return collection.getFilteredByGlob(["src/posts/**/*.md"
-                                        ,"src/about/**/*.md"
-                                        ,"src/en/posts/*.md"
-                                        ,"src/es/posts/*.md"
-                                      ]);
+  
+  //Collections
+  //collection of content to be use for front-end search 
+  eleventyConfig.addCollection("contentForSearch", function (collection) {
+    return collection.getFilteredByGlob(
+      [ "src/en/**/*.md"
+      , "src/es/**/*.md"
+    ]);
   });
-
-  eleventyConfig.addCollection("posts_en", function(collection) {
+  //collection of posts in English
+  eleventyConfig.addCollection("posts_en", function (collection) {
     return collection.getFilteredByGlob("src/en/posts/*.md");
   });
-
-  eleventyConfig.addCollection("posts_es", function(collection) {
+  //collection of posts in Spanish
+  eleventyConfig.addCollection("posts_es", function (collection) {
     return collection.getFilteredByGlob("./src/es/posts/*.md");
   });
-
-  eleventyConfig.addCollection("t", function(collection) {
+  //t is a collection with the translations of the UI
+  eleventyConfig.addCollection("t", function (collection) {
     return langContent;
   });
-
-  eleventyConfig.addCollection("tagList", function(collection) {
+  //collection of tags
+  eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
-    collection.getAll().forEach(function(item) {
-      if( "tags" in item.data ) {
+    collection.getAll().forEach(function (item) {
+      if ("tags" in item.data) {
         let tags = item.data.tags;
 
-        tags = tags.filter(function(item) {
-          switch(item) {
+        tags = tags.filter(function (item) {
+          switch (item) {
             // this list should match the `filter` list in tags.njk
             case "all":
             case "nav":
@@ -110,23 +116,25 @@ module.exports = function(eleventyConfig) {
     return [...tagSet];
   });
 
-  // eleventyConfig.addPassthroughCopy("img");
-  eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/fonts");
-  eleventyConfig.addPassthroughCopy("src/images");
-  eleventyConfig.addPassthroughCopy("src/js");
-  // eleventyConfig.addPassthroughCopy("node_modules/loc-i18next/dist/umd/loc-i18next.min.js","js/loc-i18next.min.js");
 
+  //Copy assets
   eleventyConfig.addPassthroughCopy({
-    "node_modules/loc-i18next/dist/umd/loc-i18next.min.js": "js/loc-i18next.min.js",
-    "node_modules/fuse.js/dist/fuse.min.js": "js/fuse.min.js",
+    "vendor/css": "assets/vendor/css",
+    "src/assets/css": "assets/css",
+    "vendor/fonts": "assets/vendor/fonts",
+    "src/assets/images": "assets/images",
+    "vendor/js": "assets/vendor/js",
+    "node_modules/fuse.js/dist/fuse.min.js": "assets/vendor/js/fuse.min.js",
   });
+
 
   // Shortcodes
   eleventyConfig.addNunjucksAsyncShortcode('img', imageProcess);
-  
+
+
   // Sass pre-processing
-  sassProcess('./src/scss/style.scss', './public/css/style.css');
+  sassProcess('./vendor/scss/style.scss', './public/assets/vendor/css/style.css');
+
 
   /* Markdown Overrides */
   let markdownLibrary = markdownIt({
@@ -140,10 +148,15 @@ module.exports = function(eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  
+  // Transform
+  eleventyConfig.addTransform("minify", require("./build/transforms/minify"));
+
+
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
     callbacks: {
-      ready: function(err, browserSync) {
+      ready: function (err, browserSync) {
         const content_404 = fs.readFileSync('public/404.html');
 
         browserSync.addMiddleware("*", (req, res) => {
@@ -156,6 +169,7 @@ module.exports = function(eleventyConfig) {
     ui: false,
     ghostMode: false
   });
+
 
   return {
     templateFormats: [

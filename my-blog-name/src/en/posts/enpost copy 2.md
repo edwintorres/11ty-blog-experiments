@@ -3,7 +3,7 @@ title: English post2
 description: An English post for testing.
 date: 2021-03-17
 author: Edwin Torres
-headerImage: /images/blog/08.jpg
+headerImage: /assets/images/blog/08.jpg
 headerImageAlt: 
 tags:
   - another-tag

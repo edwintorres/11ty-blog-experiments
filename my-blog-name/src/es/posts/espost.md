@@ -3,7 +3,7 @@ title: Publicación en Español
 description: Esta es una publicación en español
 date: 2021-03-17
 author: Edwin Torres
-headerImage: /images/blog/07.jpg
+headerImage: /assets/images/blog/07.jpg
 headerImageAlt: 
 tags:
   - another-tag

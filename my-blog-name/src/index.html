@@ -16,7 +16,7 @@
 <script>
     window.addEventListener('load', (event) => {
         
-        if(document.documentElement.lang == "es"){
+        if(navigator.language.substring(0,2) == "es"){
             window.location.href = "/es";
             
         } else {

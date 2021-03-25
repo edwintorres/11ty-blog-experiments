@@ -1,0 +1,15 @@
+---
+permalink: /assets/js/contentForSearch.js
+---
+
+app["contentForSearch"] = [
+    {% for post in collections.contentForSearch %}
+        {
+            "title": "{{ post.data.title }}",
+            "description": "{{ post.data.description }}",
+            "headerImage": "{{ post.data.headerImage }}",
+            "url": "{{ post.url }}"
+        },
+    {% endfor %}
+];
+

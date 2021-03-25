@@ -31,7 +31,7 @@
     "fibers": "^5.0.0",
     "fs-extra": "^9.1.0",
     "fuse.js": "^6.4.6",
-    "loc-i18next": "^0.1.4",
+    "html-minifier": "^4.0.0",
     "luxon": "^1.25.0",
     "markdown-it": "^8.4.2",
     "markdown-it-anchor": "^5.2.5",
@@ -39,7 +39,9 @@
     "node-sass-promise": "^1.0.0",
     "number-generator": "^4.0.5",
     "path": "^0.12.7",
+    "prettier": "^2.2.1",
     "sass": "^1.32.8",
-    "sharp": "^0.27.2"
+    "sharp": "^0.27.2",
+    "terser": "^5.6.1"
   }
 }

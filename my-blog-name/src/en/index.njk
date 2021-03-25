@@ -7,6 +7,9 @@ eleventyNavigation:
   order: 2
 ---
 
+<div id="recent-posts" class="section-title mb-3">
+    <h4 class="title">{{ collections.t[locale].recentPost }}</h4>
+</div>
 {% set maxPosts = collections.posts.length | min(2) %}
 {# <h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1> #}
 
