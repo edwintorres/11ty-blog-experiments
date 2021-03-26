@@ -6,30 +6,34 @@
                     <a href="#" class="logo-footer">
                         <img src="/assets/images/logo-light.png" height="24" alt="">
                     </a>
-                    <p class="mt-4">Hi. I'm Edwin Torres. I write about technology and data.</p>
+                    <p class="mt-4">{{ collections.t[locale].heroCallout }} {{ collections.t[locale].typedMessage5 }}</p>
+
                     <ul class="list-unstyled social-icon social mb-0 mt-4">
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="{{ metadata.author.twitter }}" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                        <li class="list-inline-item"><a href="{{ metadata.author.linkedin }}" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
                     </ul><!--end icon-->
                 </div><!--end col-->
                 
                 <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <h5 class="text-light footer-head">Company</h5>
+                    <h5 class="text-light footer-head">edtorr.com</h5>
                     <ul class="list-unstyled footer-list mt-4">
-                        <li><a href="page-aboutus.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> About us</a></li>
-                        <li><a href="page-services.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Services</a></li>
-                        <li><a href="page-team.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Team</a></li>
-                        <li><a href="page-pricing.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Pricing</a></li>
-                        <li><a href="page-portfolio-modern.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Project</a></li>
-                        <li><a href="page-jobs.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Careers</a></li>
-                        <li><a href="page-blog-grid.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Blog</a></li>
-                        <li><a href="auth-cover-login.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Login</a></li>
+
+                        {%- for entry in collections.all | eleventyNavigation(locale) %}
+                        
+                            <li>
+                                <a href="{{ entry.url | url }}" class="text-foot" style="color: #adb5bd;">
+                                    <i class="uil uil-angle-right-b me-1"></i> {{ entry.title }}
+                                </a>
+                            </li>
+                        
+                        {%- endfor %}
+
+                        {# <li><a href="page-aboutus.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> {{ collections.t[locale].readme }}</a></li>
+                        <li><a href="page-services.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Blog</a></li> #}
                     </ul>
                 </div><!--end col-->
                 
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                {# <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                     <h5 class="text-light footer-head">Usefull Links</h5>
                     <ul class="list-unstyled footer-list mt-4">
                         <li><a href="page-terms.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Terms of Services</a></li>
@@ -38,10 +42,10 @@
                         <li><a href="changelog.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Changelog</a></li>
                         <li><a href="components.html" class="text-foot"><i class="uil uil-angle-right-b me-1"></i> Components</a></li>
                     </ul>
-                </div><!--end col-->
+                </div><!--end col--> #}
 
-                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    Photo by <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" class="text-foot">SpaceX</a> on <a href="/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" class="text-foot">Unsplash</a>
+                {# <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    
                     <h5 class="text-light footer-head">Newsletter</h5>
                     
                     <p class="mt-4">Sign up and receive the latest tips via email.</p>
@@ -63,7 +67,7 @@
                             </div>
                         </div>
                     </form>
-                </div><!--end col-->
+                </div><!--end col--> #}
             </div><!--end row-->
         </div><!--end container-->
     </footer><!--end footer-->
@@ -72,18 +76,12 @@
             <div class="row align-items-center">
                 <div class="col-sm-6">
                     <div class="text-sm-start">
-                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Landrick. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="http://shreethemes.in/" target="_blank" class="text-reset">Shreethemes</a>.</p>
+                        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> | edtorr.com</p>
                     </div>
                 </div><!--end col-->
 
                 <div class="col-sm-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                    <ul class="list-unstyled text-sm-end mb-0">
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/american-ex.png" class="avatar avatar-ex-sm" title="American Express" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/discover.png" class="avatar avatar-ex-sm" title="Discover" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/master-card.png" class="avatar avatar-ex-sm" title="Master Card" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/paypal.png" class="avatar avatar-ex-sm" title="Paypal" alt=""></a></li>
-                        <li class="list-inline-item"><a href="javascript:void(0)"><img src="images/payments/visa.png" class="avatar avatar-ex-sm" title="Visa" alt=""></a></li>
-                    </ul>
+                    {{ collections.t[locale].photoBy }} <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" class="text-foot">SpaceX</a> {{ collections.t[locale].on }} <a href="/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" class="text-foot">Unsplash</a>
                 </div><!--end col-->
             </div><!--end row-->
         </div><!--end container-->

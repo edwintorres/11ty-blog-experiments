@@ -25,20 +25,39 @@
                             {% include "shared/tags-cloud.njk" %}
                             
                             <!-- SOCIAL -->
-                            <div class="widget">
+                            <div class="widget mt-4">
                                 <h5 class="widget-title">{{ collections.t[locale].followUs }}</h5>
-                                <ul class="list-unstyled social-icon mb-0 mt-4">
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="facebook" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="instagram" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="youtube" class="fea icon-sm fea-social"></i></a></li>
-                                    <li class="list-inline-item"><a href="javascript:void(0)" class="rounded"><i data-feather="gitlab" class="fea icon-sm fea-social"></i></a></li>
+                                <ul class="list-unstyled social-icon mb-0 mt-2">
+                                    <li class="list-inline-item"><a href="{{ metadata.author.twitter }}" class="rounded"><i data-feather="twitter" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="{{ metadata.author.linkedin }}" class="rounded"><i data-feather="linkedin" class="fea icon-sm fea-social"></i></a></li>
+                                    <li class="list-inline-item"><a href="{{ metadata.author.github }}" class="rounded"><i data-feather="github" class="fea icon-sm fea-social"></i></a></li>
                                 </ul><!--end icon-->
                             </div>
                             <!-- SOCIAL -->
+
+                            <!-- LANGUAGE -->
+                            <div class="widget mt-4">
+                                <h5 class="widget-title">Language</h5>
+                                {# <div class="btn-group dropdown-primary mt-2">
+                                    <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        English
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">English</a>
+                                        <a class="dropdown-item" href="#">Español</a>
+                                    </div>
+                                </div> #}
+                                <div class="btn-group mt-1">
+									<button type="button" class="btn btn-dark">English</button>
+									<button type="button" class="btn btn-light">Español</button>
+								</div>
+                            </div>
+                            <!-- LANGUAGE -->
+
                         </div>
                     </div>
                 </div><!--end col-->
                 <!-- END SIDEBAR -->
+
+
+                

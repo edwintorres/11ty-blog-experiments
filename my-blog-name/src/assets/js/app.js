@@ -4,18 +4,18 @@ window.addEventListener('load', (event) => {
 
     //Fuse library options
     app["fuseOptions"] = {
-        // isCaseSensitive: false,
-        // includeScore: false,
-        // shouldSort: true,
-        // includeMatches: false,
-        // findAllMatches: false,
-        // minMatchCharLength: 1,
-        // location: 0,
-        // threshold: 0.6,
-        // distance: 100,
-        // useExtendedSearch: false,
-        // ignoreLocation: false,
-        // ignoreFieldNorm: false,
+        isCaseSensitive: false,
+        includeScore: false,
+        shouldSort: true,
+        includeMatches: false,
+        findAllMatches: false,
+        minMatchCharLength: 1,
+        location: 0,
+        threshold: 0.6,
+        distance: 100,
+        useExtendedSearch: false,
+        ignoreLocation: false,
+        ignoreFieldNorm: false,
         keys: [
             "title",
             "description"
@@ -77,8 +77,11 @@ if(document.getElementsByClassName('typed-personal').length > 0) {
         stringsElement: '#typed-strings',
         typeSpeed: 150,
         strings: [
-            "Hi, I'm Edwin Torres. The motto of this site is...",
-            "Continuously learning about tech and data ",
+            document.getElementById("typedMessage1").innerText,
+            document.getElementById("typedMessage2").innerText,
+            document.getElementById("typedMessage3").innerText,
+            document.getElementById("typedMessage4").innerText,
+            document.getElementById("typedMessage5").innerText,
         ],
     });
 }
