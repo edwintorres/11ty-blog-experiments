@@ -1,5 +1,35 @@
 const app = new Object();
 
+//translation widget
+const translation = () => {
+
+    const lang = document.documentElement.lang;
+    const translationURL = document.getElementById("translation").innerText;
+
+    if (translationURL.length > 0) {
+
+        if (lang == "es") {
+
+            // document.getElementById("english-btn")
+            document.getElementById("spanish-btn").classList.remove("btn-light");
+            document.getElementById("spanish-btn").classList.add("btn-dark");
+            document.getElementById("english-btn").onclick = () => {  window.location.replace(translationURL); }
+
+
+        } else {
+
+            document.getElementById("english-btn").classList.remove("btn-light");
+            document.getElementById("english-btn").classList.add("btn-dark");
+            document.getElementById("spanish-btn").onclick = () => {  window.location.replace(translationURL); }
+        }
+    }
+    else {
+        document.getElementById("widget-language").classList.add("d-none");
+
+    }
+
+}
+
 window.addEventListener('load', (event) => {
 
     //Fuse library options
@@ -24,6 +54,7 @@ window.addEventListener('load', (event) => {
     //Create a instance of Fuse
     app["fuse"] = new Fuse(app.contentForSearch, app.fuseOptions);
 
+    translation();
 });
 
 const mySearch = () => {
@@ -71,8 +102,8 @@ const mySearch = () => {
     }
 }
 
-//index-personal.html
-if(document.getElementsByClassName('typed-personal').length > 0) {
+//typed hero-home
+if (document.getElementsByClassName('typed-personal').length > 0) {
     var typed = new Typed('.typed-personal', {
         stringsElement: '#typed-strings',
         typeSpeed: 150,
@@ -85,4 +116,7 @@ if(document.getElementsByClassName('typed-personal').length > 0) {
         ],
     });
 }
+
+
+
 
