@@ -1,7 +1,7 @@
 module.exports = {
     en: {
         title: "",
-        recentPost: "Recent Post",
+        recentPosts: "Recent Posts",
         tagsCloud: "Tags Cloud",
         searchPlaceholder: "Search Keywords...",
         followUs: "Social Media",
@@ -17,6 +17,10 @@ module.exports = {
         readme: "README",
         engineer: "Engineer",
         photoBy: "Photo by",
-        on: "on"
+        on: "on",
+        language: "Language",
+        readMore: "Read More",
+        morePosts: "More posts"
+
     }
   };

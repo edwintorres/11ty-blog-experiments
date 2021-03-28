@@ -10,7 +10,7 @@ translation: /es/
 ---
 
 <div id="recent-posts" class="section-title mb-3">
-    <h4 class="title">{{ collections.t[locale].recentPost }}</h4>
+    <h4 class="title">{{ collections.t[locale].recentPosts }}</h4>
 </div>
 {% set maxPosts = collections.posts.length | min(2) %}
 {# <h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1> #}
@@ -20,7 +20,7 @@ translation: /es/
 {% include "shared/posts-list.njk" %}
 
 
-<p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p>
+<p><a href="{{ './blog/' | url }}">{{ collections.t[locale].morePosts }} <i class="uil uil-angle-right-b align-middle"></i></a></p>
 
 
 

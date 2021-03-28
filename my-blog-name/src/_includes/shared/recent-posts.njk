@@ -4,7 +4,7 @@
 {% set postslist = collections.posts | head(-3) %}
 {% set postslistCounter = collections.posts | length %}
 <div class="widget mt-4 pb-2">
-    <h5 class="widget-title">{{ collections.t[locale].recentPost }}</h5>
+    <h5 class="widget-title">{{ collections.t[locale].recentPosts }}</h5>
     <div class="mt-3">
     {% for post in postslist | reverse %}
 

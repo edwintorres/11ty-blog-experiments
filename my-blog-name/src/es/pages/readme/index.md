@@ -13,6 +13,7 @@ eleventyNavigation:
   parent: es
   order: 3
 locale: es
+translation: /en/pages/readme/
 ---
 
 Soy una persona que escribe cosas.

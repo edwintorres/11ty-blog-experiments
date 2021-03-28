@@ -22,7 +22,7 @@
                         <ul class="list-unstyled mb-0">
                             <li class="list-inline-item me-2 mb-0"><i class="uil uil-calendar-alt"></i> {{ post.date | readableDate }}</li>
                         </ul>
-                        <a href="{{ post.url | url }}" class="text-muted readmore">Read More <i class="uil uil-angle-right-b align-middle"></i></a>
+                        <a href="{{ post.url | url }}" class="text-muted readmore">{{ collections.t[locale].readMore }} <i class="uil uil-angle-right-b align-middle"></i></a>
                     </div>
                 </div>
                 <div class="author">
