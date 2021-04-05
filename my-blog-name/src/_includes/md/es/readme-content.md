@@ -1,22 +1,3 @@
----
-layout: layouts/readme.njk
-title: README
-date: 2021-07-04
-description: Edwin Torres
-headerImage: /assets/images/blog/04.jpg
-headerImageAlt: 
-templateClass: tmpl-post
-tags:
-  - about-me
-eleventyNavigation:
-  key: README
-  parent: es
-  order: 3
-locale: es
-translation: /en/pages/readme/
----
-
-
 ### ¿Quién soy?
 #### Fuera del trabjo
 Vivo en el área metropolitana de San Juan en Puerto Rico con mi esposa, mi hijo, mi hija y dos conejillos de indias. Comenzamos a hacer educación en el hogar después de la pandemia de COVID-19 durante la cual hemos estado haciendo Kinder y Pre-K para nuestros dos hijos. Mi esposa tiene un título en Educación que ha sido esencial para nuestro éxito durante estos tiempos difíciles.

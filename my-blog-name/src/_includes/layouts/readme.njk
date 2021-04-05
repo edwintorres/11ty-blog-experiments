@@ -1,0 +1,39 @@
+---
+layout: layouts/base-header-profile.njk
+---
+
+<link href="/assets/css/readme.css" rel="stylesheet" type="text/css" />
+
+<!-- Content-Section Start -->
+<section class="section mt-60">
+    <div class="container {% if templateClass %} {{ templateClass }}{% endif %}">
+        <div class="row">
+
+            <!-- Content Start -->
+            <div class="col-lg-8 col-md-6">
+
+                <div class="card blog blog-detail border-0 shadow rounded">
+                    <div class="card-body content">
+
+                        <p>{{ collections.t[locale].aboutMeIntro }}</p>
+                        
+                        <h3 class="">{{ collections.t[locale].toc }}</h3>
+                        {{ content | toc | safe }}  
+                        
+                        {{ content | safe }}
+                        
+                    </div>
+                </div>
+
+            </div><!--end col-->
+            <!-- Content End -->
+
+            {% include "shared/sidebar.njk" %}
+
+        </div><!--end row-->
+    </div><!--end container-->
+</section><!--end section-->
+<!-- Content-Section End -->
+
+
+

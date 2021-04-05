@@ -13,6 +13,13 @@ layout: layouts/base-header-profile.njk
                 <div class="card blog blog-detail border-0 shadow rounded">
                     <div class="card-body content">
 
+                        {% markdown %}
+                        {%- include "md/en/readme-intro.md" -%}
+                        {% endmarkdown %}
+                        
+                        <h3 class="">Table of Content</h3>
+                        {{ content | toc | safe }}  
+                        
                         {{ content | safe }}
                         
                     </div>

@@ -1,0 +1,6 @@
+.content h3, .content h4 {
+    padding-top: 0.75em;
+    padding-bottom: .3em;
+    border-bottom: 1px solid #ededed;
+    scroll-margin-top: 74px;
+}

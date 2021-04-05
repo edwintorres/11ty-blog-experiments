@@ -117,6 +117,13 @@ if (document.getElementsByClassName('typed-personal').length > 0) {
     });
 }
 
+focusMethod = function getFocus() {
+    
+    if (window.innerWidth < 960) {
+        document.getElementById("mySearch").scrollIntoView({block: 'center' });
+    }
+    else {
+        document.getElementById("mySearch").scrollIntoView({block: 'start' });
+    }
 
-
-
+}

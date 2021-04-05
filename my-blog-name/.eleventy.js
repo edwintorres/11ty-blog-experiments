@@ -11,6 +11,7 @@ const imageProcess = require('./build/image-process');
 const moment = require("moment");
 const en = require("./src/_data/en");
 const es = require("./src/_data/es");
+const pluginTOC = require('eleventy-plugin-nesting-toc');
 
 module.exports = function (eleventyConfig) {
 
@@ -22,6 +23,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
+  eleventyConfig.addPlugin(pluginTOC, 
+    {
+      tags: ['h3', 'h4'],       // which heading tags are selected headings must each have an ID attribute
+      wrapper: 'nav',           // element to put around the root `ol`/`ul`
+      wrapperClass: 'toc',      // class for the element around the root `ol`/`ul`
+      ul: true,                // if to use `ul` instead of `ol`
+      flat: false,              // if subheadings should appear as child of parent or as a sibling
+    }
+  );
 
 
   // ????
@@ -142,16 +152,20 @@ module.exports = function (eleventyConfig) {
     breaks: true,
     linkify: true
   }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#"
+    permalink: false,
+    permalinkClass: "direct-link"
+    ,permalinkSymbol: "#"
+    ,permalinkBefore: true
   });
+
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  eleventyConfig.addPairedShortcode("markdown", (content) => {
+    return markdownLibrary.render(content);
+  });
   
   // Transform
   eleventyConfig.addTransform("minify", require("./build/transforms/minify"));
-
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({

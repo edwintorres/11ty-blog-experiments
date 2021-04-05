@@ -1,0 +1,30 @@
+---
+layout: layouts/readme-en.njk
+title: README
+date: 2021-07-04
+description: Edwin Torres
+headerImage: /assets/images/blog/04.jpg
+headerImageAlt: 
+templateClass: tmpl-post
+tags:
+  - about-me
+eleventyNavigation:
+  key: README
+  parent: en
+  order: 3
+locale: en
+translation: /es/pages/readme/
+---
+
+<style>
+.content h3, .content h4 {
+    padding-top: 0.75em;
+    padding-bottom: .3em;
+    border-bottom: 1px solid #ededed;
+    scroll-margin-top: 74px;
+}
+</style>
+
+{% markdown %}
+  {%- include "md/en/readme-content.md" -%}
+{% endmarkdown %}

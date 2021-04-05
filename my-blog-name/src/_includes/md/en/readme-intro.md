@@ -1,0 +1,1 @@
+¡Hola! My name is Edwin Torres or Edwin Torres Hernández or Edwin Torres-Hernandez or just Edwin. I'm a father of two, a boricua (Puerto Rican), and the husband of a minister of Presbyterian Church (U.S.A.). My mother tongue is Spanish, but I learned English during my twenties. My pronouns are he/él.
